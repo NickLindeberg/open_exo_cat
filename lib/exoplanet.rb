@@ -1,8 +1,8 @@
 class Exoplanet
   attr_reader :planet_identifer, :star_temp
 
-  def initialize(planet_data)
-    @planet_identifer = planet_data["PlanetIdentifier"]
-    @star_temp = planet_data["HostStarTempK"]
+  def initialize(data)
+    @planet_identifer = data["PlanetIdentifier"]
+    @star_temp = data["HostStarTempK"] == "" ? 0 : data["HostStarTempK"]
   end
 end

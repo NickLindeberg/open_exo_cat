@@ -1,4 +1,5 @@
 require './lib/exoplanet.rb'
+require 'pry'
 
 RSpec.describe Exoplanet do
   let(:planet_data) { {"PlanetIdentifier"=>"Rad Planet", "HostStarTempK"=>1290 } }
@@ -17,6 +18,6 @@ RSpec.describe Exoplanet do
 
   it 'can create orphan planet' do
     expect(orphan_planet.planet_identifer).to eq("Lonely Planet")
-    expect(orphan_planet.star_temp).to eq("")
+    expect(orphan_planet.star_temp).to eq(0)
   end
 end
