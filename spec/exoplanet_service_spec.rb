@@ -45,7 +45,7 @@ RSpec.describe ExoplanetService do
     expect(planet_array.count).to eq(1)
   end
 
-  it 'has data planet_identifer' do
+  it 'has data planet_identifer and star temp' do
     expect(planet_array.first["PlanetIdentifier"]).to be_a(String)
     expect(planet_array.first["HostStarTempK"]).to eq(3584)
   end
