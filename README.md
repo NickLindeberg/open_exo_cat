@@ -22,3 +22,5 @@ To display the calculations, in your console run
 To run the tests, in your console run `rspec`
 
 Thanks!
+
+<img width="517" alt="Screen Shot 2022-11-14 at 12 10 54 PM" src="https://user-images.githubusercontent.com/39312419/201745401-22ea7c91-7a39-4f06-85a0-476c504a2bc4.png">
