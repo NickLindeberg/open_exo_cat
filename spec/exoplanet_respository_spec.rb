@@ -3,9 +3,18 @@ require './lib/exoplanet_repository.rb'
 require 'pry'
 
 RSpec.describe ExoplanetRepository do
-  let(:planet_data) { {"PlanetIdentifier"=>"Rad Planet", "HostStarTempK"=>1290 } }
-  let(:planet_data_hot_star) { {"PlanetIdentifier"=>"Even Radder Planet", "HostStarTempK"=>500000 } }
-  let(:orphan_planet_data) { {"PlanetIdentifier"=>"Lonely Planet", "HostStarTempK"=>""} }
+  let(:planet_data) { {"PlanetIdentifier"=>"Rad Planet",
+                       "HostStarTempK"=>1290,
+                       "DiscoveryYear"=>1986,
+                       "RadiusJpt"=>0.054 } }
+  let(:orphan_planet_data) { {"PlanetIdentifier"=>"Lonely Planet",
+                              "HostStarTempK"=>"",
+                              "DiscoveryYear"=>2019,
+                              "RadiusJpt"=>1.9 } }
+  let(:planet_data_hot_star) { {"PlanetIdentifier"=>"Even Radder Planet",
+                              "HostStarTempK"=>500000,
+                              "DiscoveryYear"=>1986,
+                              "RadiusJpt"=>2.9 } }
 
   let(:planet) { Exoplanet.new(planet_data) }
   let(:planet_hot_star) { Exoplanet.new(planet_data_hot_star) }
@@ -28,5 +37,10 @@ RSpec.describe ExoplanetRepository do
 
   it 'shows planet identifier with hottest star' do
     expect(exo_repo.planet_with_hottest_star).to eq("Even Radder Planet")
+  end
+
+  it 'gives timeline of when exoplanets were discovered and planet sizes' do
+    string = "In 1986 we discovered 1 large planets, 0 medium and 1 small.\nIn 2019 we discovered 0 large planets, 1 medium and 0 small."
+    expect(exo_repo.timeline).to eq(string)
   end
 end
