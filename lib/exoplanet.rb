@@ -12,12 +12,16 @@ class Exoplanet
   end
 
   def tshirt_size
-    if @size < 1
-      "small"
-    elsif @size < 2
-      "medium"
+    if @size == ""
+      nil
     else
-      "large"
+      if @size < 1
+        "small"
+      elsif @size < 2
+        "medium"
+      else
+        "large"
+      end
     end
   end
 end
